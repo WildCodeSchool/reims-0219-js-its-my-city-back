@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 
 app.listen(port, (err) => {
   if (err) {
-    throw new Error('Something bad happened...');
+    throw new Error(`Something bad happened, server is not listening ${err}`);
   }
 
   console.log(`Server is listening on ${port}`);
