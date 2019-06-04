@@ -12,6 +12,20 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+
+  //All to pick up a filter for the keywords in the database
+  //Test for deployment
+  app.get('/Poi/Filter/', (req, res) => {
+    connection.query('SELECT name FROM test', (err, results) => {
+      if (err) {
+        res.status(500).send('Erreur lors de la récupération des ');
+      } else {
+        res.json(results);
+      }
+    });
+  });
+
+/*
 //Allow the creation a point of interest
 app.post('/Poi', (req, res) => {
     connection.query('SELECT * from ', (err, results) => {
@@ -26,17 +40,6 @@ app.post('/Poi', (req, res) => {
 //Random sample of pins for the home page of the app
 app.get('/Poi/Sample', (req, res) => {
     connection.query('SELECT * from ', (err, results) => {
-      if (err) {
-        res.status(500).send('Erreur lors de la récupération des ');
-      } else {
-        res.json(results);
-      }
-    });
-  });
-
-  //All to pick up a filter for the keywords in the database
-  app.get('/Poi/Filter/', (req, res) => {
-    connection.query('SELECT name FROM test', (err, results) => {
       if (err) {
         res.status(500).send('Erreur lors de la récupération des ');
       } else {
@@ -77,7 +80,7 @@ app.get('/Poi/Sample', (req, res) => {
         res.json(results);
       }
     });
-  });
+  });*/
 
 app.listen(port, (err) => {
   if (err) {
