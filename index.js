@@ -1,7 +1,8 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const port = 3000;
-const connection = require('./database');
+const connection = require('./conf');
 
 const bodyParser = require('body-parser');
 // Support JSON-encoded bodies
@@ -34,8 +35,8 @@ app.get('/Poi/Sample', (req, res) => {
   });
 
   //All to pick up a filter for the keywords in the database
-  app.get('/Poi/Filter', (req, res) => {
-    connection.query('SELECT * from ', (err, results) => {
+  app.get('/Poi/Filter/', (req, res) => {
+    connection.query('SELECT name FROM test', (err, results) => {
       if (err) {
         res.status(500).send('Erreur lors de la récupération des ');
       } else {
@@ -44,6 +45,7 @@ app.get('/Poi/Sample', (req, res) => {
     });
   });
 
+  
   //Get the description of a specific point of interest
   app.get('/Poi/Filter/:id', (req, res) => {
     connection.query('SELECT * from ', (err, results) => {
@@ -76,7 +78,6 @@ app.get('/Poi/Sample', (req, res) => {
       }
     });
   });
-
 
 app.listen(port, (err) => {
   if (err) {
