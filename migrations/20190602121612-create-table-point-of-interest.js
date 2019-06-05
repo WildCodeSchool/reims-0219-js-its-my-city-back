@@ -18,7 +18,7 @@ exports.setup = function (options, seedLink) {
 };
 
 exports.up = function (db) {
-  return db.createTable('pointofinterest', {
+  return db.createTable('point_of_interest', {
     id: {
       type: 'int', primaryKey: true, autoIncrement: true, notNull: true,
     },
