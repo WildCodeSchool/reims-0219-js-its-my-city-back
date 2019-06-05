@@ -15,7 +15,7 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.removeColumn("pointofinterest", "localisation");
+  return db.removeColumn("point_of_interest", "localisation");
 };
 
 exports.down = function(db) {

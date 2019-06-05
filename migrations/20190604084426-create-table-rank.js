@@ -34,7 +34,7 @@ exports.up = function (db) {
       notNull: true,
       foreignKey: {
         name: 'rank_poi_fk',
-        table: 'pointofinterest',
+        table: 'point_of_interest',
         rules: { onDelete: 'RESTRICT', onUpdate: 'RESTRICT' },
         mapping: { poi_id: 'id' },
       },

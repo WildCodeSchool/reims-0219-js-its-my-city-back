@@ -20,7 +20,7 @@ exports.up = function(db) {
     "poi_id"
   ], [
     "1",
-    "2"
+    "1"
   ]);
 };
 

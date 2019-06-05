@@ -15,7 +15,7 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.addColumn("pointofinterest", "longitude", {
+  return db.addColumn("point_of_interest", "longitude", {
     type : "float",
     notNull : true
   });;

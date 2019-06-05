@@ -15,7 +15,7 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.insert("pointofinterest", [
+  return db.insert("point_of_interest", [
     "name",
     "informations",
     "author_id",
