@@ -1,24 +1,23 @@
-/* eslint-disable func-names */
 
 
-let dbm;
-// eslint-disable-next-line no-unused-vars
-let type;
-// eslint-disable-next-line no-unused-vars
-let seed;
+'use strict';
+
+var dbm;
+var type;
+var seed;
 
 /**
   * We receive the dbmigrate dependency from dbmigrate initially.
   * This enables us to not have to rely on NODE_PATH.
   */
-exports.setup = function (options, seedLink) {
+exports.setup = function(options, seedLink) {
   dbm = options.dbmigrate;
   type = dbm.dataType;
   seed = seedLink;
 };
 
-exports.up = function (db) {
-  return db.createTable('rank', {
+exports.up = function(db) {
+  return  db.createTable('poi_keywords', {
     keyword_id: {
       type: 'int',
       notNull: true,
@@ -39,14 +38,24 @@ exports.up = function (db) {
         mapping: { poi_id: 'id' },
       },
     },
-  });
+  })
+  .then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "1",
+        "1"
+      ]);
+    }
+  )
 };
 
-exports.down = function (db) {
-  return db.dropTable('rank');
+exports.down = function(db) {
+  return db.dropTable("poi_keywords");
 };
 
-// eslint-disable-next-line no-underscore-dangle
 exports._meta = {
-  version: 1,
+  "version": 1
 };

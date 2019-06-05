@@ -1,37 +1,38 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable func-names */
+'use strict';
 
-
-let dbm;
-let type;
-// eslint-disable-next-line no-unused-vars
-let seed;
+var dbm;
+var type;
+var seed;
 
 /**
   * We receive the dbmigrate dependency from dbmigrate initially.
   * This enables us to not have to rely on NODE_PATH.
   */
-exports.setup = function (options, seedLink) {
+exports.setup = function(options, seedLink) {
   dbm = options.dbmigrate;
   type = dbm.dataType;
   seed = seedLink;
 };
 
-exports.up = function (db) {
+exports.up = function(db) {
   return db.createTable('user', {
     id: {
       type: 'int', primaryKey: true, autoIncrement: true, notNull: true,
     },
     name: { type: 'char', length: 80, notNull: true },
-    password: { type: 'int', notNull: true },
-  });
+    password: { type: 'char', length: 150 , notNull: true },
+  })
+  .then(
+    function(result){
+      db.insert("user", ["name", "password"], ["Wilder", "password"])
+    }
+  )
 };
 
-exports.down = function (db) {
+exports.down = function(db) {
   return db.dropTable('user');
 };
 
-// eslint-disable-next-line no-underscore-dangle
 exports._meta = {
-  version: 1,
+  "version": 1
 };
