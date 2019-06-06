@@ -1,10 +1,7 @@
-/* eslint-disable func-names */
 
 
 let dbm;
-// eslint-disable-next-line no-unused-vars
 let type;
-// eslint-disable-next-line no-unused-vars
 let seed;
 
 /**
@@ -18,35 +15,34 @@ exports.setup = function (options, seedLink) {
 };
 
 exports.up = function (db) {
-  return db.createTable('rank', {
-    keyword_id: {
+  return db.createTable('keyword_hierarchy', {
+    keyword_parent: {
       type: 'int',
       notNull: true,
       foreignKey: {
-        name: 'rank_keyword_fk',
+        name: 'keywordwithkf1_keyword_fk',
         table: 'keyword',
         rules: { onDelete: 'RESTRICT', onUpdate: 'RESTRICT' },
-        mapping: { keyword_id: 'id' },
+        mapping: { keyword_parent: 'id' },
       },
     },
-    poi_id: {
+    keyword_children: {
       type: 'int',
       notNull: true,
       foreignKey: {
-        name: 'rank_poi_fk',
-        table: 'pointofinterest',
+        name: 'keywordwithfk2_keyword_fk',
+        table: 'keyword',
         rules: { onDelete: 'RESTRICT', onUpdate: 'RESTRICT' },
-        mapping: { poi_id: 'id' },
+        mapping: { keyword_children: 'id' },
       },
     },
   });
 };
 
 exports.down = function (db) {
-  return db.dropTable('rank');
+  return db.dropTable('keyword_hierarchy');
 };
 
-// eslint-disable-next-line no-underscore-dangle
 exports._meta = {
   version: 1,
 };
