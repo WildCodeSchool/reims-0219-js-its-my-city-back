@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "node node_modules/db-migrate/bin/db-migrate"
+    "migrate": "node node_modules/db-migrate/bin/db-migrate",
+    "nodemon": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,10 @@
   "devDependencies": {
     "db-migrate": "^0.11.5",
     "db-migrate-mysql": "^1.1.10",
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
