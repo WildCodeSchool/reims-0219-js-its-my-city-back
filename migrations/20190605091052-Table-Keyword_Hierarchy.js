@@ -23,7 +23,7 @@ exports.up = function (db) {
         name: 'keywordwithkf1_keyword_fk',
         table: 'keyword',
         rules: { onDelete: 'RESTRICT', onUpdate: 'RESTRICT' },
-        mapping: { keyword1_id: 'id' },
+        mapping: { keyword_parent: 'id' },
       },
     },
     keyword_children: {
@@ -33,7 +33,7 @@ exports.up = function (db) {
         name: 'keywordwithfk2_keyword_fk',
         table: 'keyword',
         rules: { onDelete: 'RESTRICT', onUpdate: 'RESTRICT' },
-        mapping: { keyword2_id: 'id' },
+        mapping: { keyword_children: 'id' },
       },
     },
   });
