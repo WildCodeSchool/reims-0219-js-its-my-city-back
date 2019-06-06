@@ -1,22 +1,22 @@
-'use strict';
 
-var dbm;
-var type;
-var seed;
+
+let dbm;
+let type;
+let seed;
 
 /**
   * We receive the dbmigrate dependency from dbmigrate initially.
   * This enables us to not have to rely on NODE_PATH.
   */
-exports.setup = function(options, seedLink) {
+exports.setup = function (options, seedLink) {
   dbm = options.dbmigrate;
   type = dbm.dataType;
   seed = seedLink;
 };
 
-exports.up = function(db) {
-  return db.createTable('keywordwithfk', {
-    keyword1_id: {
+exports.up = function (db) {
+  return db.createTable('keyword_hierarchy', {
+    keyword_parent: {
       type: 'int',
       notNull: true,
       foreignKey: {
@@ -26,7 +26,7 @@ exports.up = function(db) {
         mapping: { keyword1_id: 'id' },
       },
     },
-    keyword2_id: {
+    keyword_children: {
       type: 'int',
       notNull: true,
       foreignKey: {
@@ -39,10 +39,10 @@ exports.up = function(db) {
   });
 };
 
-exports.down = function(db) {
-  return db.dropTable('keywordwithfk');
+exports.down = function (db) {
+  return db.dropTable('keyword_hierarchy');
 };
 
 exports._meta = {
-  "version": 1
+  version: 1,
 };
