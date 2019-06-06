@@ -24,7 +24,7 @@ router.get('/sample', function (req, res) {
     }else{
       res.json(datas)
     }
-  })  
+  }) 
 });
 
 router.post('/create', function (req, res) {
