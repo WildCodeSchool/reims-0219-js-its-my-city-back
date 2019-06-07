@@ -1,4 +1,4 @@
-const addArray = datas => (
+const transformJson = datas => (
   datas.map(data => ({
     id: data.id,
     name: data.name,
@@ -12,4 +12,4 @@ const addArray = datas => (
   }))
 );
 
-module.exports = addArray;
+module.exports = transformJson;

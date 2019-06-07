@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const connection = require('../../conf');
-const addArray = require('../../functions/Add_array');
+const transformJson = require('../../functions/transformJson');
 
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -14,7 +14,7 @@ router.get('/sample', (req, res) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
-      res.json(addArray(datas));
+      res.json(transformJson(datas));
     }
   });
 });
