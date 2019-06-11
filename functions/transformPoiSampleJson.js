@@ -1,4 +1,4 @@
-const transformJson = datas => (
+const transformPoiSampleJson = datas => (
   datas.map(data => ({
     id: data.id,
     name: data.name,
@@ -12,4 +12,4 @@ const transformJson = datas => (
   }))
 );
 
-module.exports = transformJson;
+module.exports = transformPoiSampleJson;
