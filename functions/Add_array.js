@@ -1,5 +1,6 @@
 const addArray = datas => (
   datas.map(data => ({
+    ...data,
     id: data.id,
     name: data.name,
     informations: data.informations,
@@ -7,8 +8,8 @@ const addArray = datas => (
       data.latitude,
       data.longitude,
     ],
-    author_id: data.author_id,
-    picture_id: data.picture_id,
+    author: data.author,
+    url: data.url,
   }))
 );
 
