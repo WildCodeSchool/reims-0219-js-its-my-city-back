@@ -29,7 +29,7 @@ exports.up = function (db) {
       "url"
     ], [
       "Piscine Talleyrand",
-      "https://www.google.fr/maps/place/Piscine+Talleyrand/@49.2568862,4.0251282,2672a,13.1y/data=!3m8!1e2!3m6!1sAF1QipMQLrYyc6u7Kvi9I9ExiNGsEYr02YM2PkLr1zbF!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMQLrYyc6u7Kvi9I9ExiNGsEYr02YM2PkLr1zbF%3Dw152-h86-k-no!7i1920!8i1080!4m5!3m4!1s0x47e975ab100d31f7:0xa405dd9732ffc3bf!8m2!3d49.2563223!4d4.0279531#"
+      "https://www.reims.fr/fileadmin/reims/MEDIA/Sports_et_loisirs/_Nouvelle_Arborescence/Piscines/Talleyrand/photo_talleyrand_05.png"
     ])
   },
     )
@@ -74,6 +74,39 @@ exports.up = function (db) {
     ], [
       "Table de Ping-Pong",
       "https://www.celona.fr/2465-thickbox_default/table-de-ping-pong-beton-chris.jpg"
+    ]);
+  },
+    )
+    .then(
+      (result) => {
+    db.insert("picture", [
+      "name",
+      "url"
+    ], [
+      "Table de Ping-Pong",
+      "https://www.celona.fr/2465-thickbox_default/table-de-ping-pong-beton-chris.jpg"
+    ]);
+  },
+    )
+    .then(
+      (result) => {
+    db.insert("picture", [
+      "name",
+      "url"
+    ], [
+      "Jardin",
+      "https://www.reims.fr/fileadmin/_processed_/a/9/csm_Jardin_d_horticulture_Reims_2_e8e6617b75.jpg"
+    ]);
+  },
+    )
+    .then(
+      (result) => {
+    db.insert("picture", [
+      "name",
+      "url"
+    ], [
+      "Parc",
+      "https://www.reims.fr/fileadmin/_processed_/5/a/csm_Lac_6f58d49181.jpg"
     ]);
   },
     );
