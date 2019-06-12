@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../conf');
 const transformPoiSampleJson = require('../../functions/transformPoiSampleJson');
+const transformPoiIdJson = require('../../functions/transformPoiIdJson');
 const getPoiInfosById = require('../../queries/getPoiInfosById');
 
 router.use((req, res, next) => {
@@ -11,7 +12,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/sample', (req, res) => {
-  connection.query('SELECT id, name, informations, latitude, longitude, author_id, picture_id FROM point_of_interest ORDER BY RAND() LIMIT 5', (err, datas) => {
+  connection.query('SELECT id, latitude, longitude FROM point_of_interest LIMIT 5', (err, datas) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
@@ -26,7 +27,7 @@ router.get('/:id', (req, res) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération du point d'interet ${poiId} : ${err}`);
     } else {
-      res.json(transformPoiSampleJson(datas));
+      res.json(transformPoiIdJson(datas));
     }
   });
 });
