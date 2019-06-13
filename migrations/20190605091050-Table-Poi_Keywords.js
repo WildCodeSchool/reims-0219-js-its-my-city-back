@@ -57,16 +57,6 @@ exports.up = function(db) {
         "poi_id"
       ], [
         "1",
-        "1"
-      ]);
-    }
-  ).then(
-    function(result){
-      db.insert("poi_keywords", [
-        "keyword_id",
-        "poi_id"
-      ], [
-        "1",
         "2"
       ]);
     }
