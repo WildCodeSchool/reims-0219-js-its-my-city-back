@@ -50,6 +50,82 @@ exports.up = function(db) {
       ]);
     }
   )
+  .then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "1",
+        "2"
+      ]);
+    }
+  ).then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "1",
+        "3"
+      ]);
+    }
+  )
+  .then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "1",
+        "4"
+      ]);
+    }
+  )
+  .then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "1",
+        "5"
+      ]);
+    }
+  )
+  .then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "1",
+        "6"
+      ]);
+    }
+  )
+  .then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "2",
+        "7"
+      ]);
+    }
+  )
+  .then(
+    function(result){
+      db.insert("poi_keywords", [
+        "keyword_id",
+        "poi_id"
+      ], [
+        "2",
+        "8"
+      ]);
+    }
+  )
 };
 
 exports.down = function(db) {

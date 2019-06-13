@@ -21,15 +21,18 @@ exports.up = function(db) {
     },
     name: { type: 'char', length: 80, notNull: true },
     importance: { type: 'int', notNull: true },
+    informations: {type: 'char', length: 255,},
   })
   .then(
     function(result){
       db.insert("keyword", [
         "name",
-        "importance"
+        "importance",
+        'informations',
       ], [
         "Nature",
-        "1"
+        "1",
+        "horaires",
       ]);
     }
   )
@@ -37,10 +40,77 @@ exports.up = function(db) {
     function(result){
       db.insert("keyword",[
         "name",
-        "importance"
+        "importance",
+        'informations',
       ], [
         "Sport",
-        "1"
+        "1",
+        "horaires",
+      ])
+    }
+  )
+  .then(
+    function(result){
+      db.insert("keyword",[
+        "name",
+        "importance",
+        'informations',
+      ], [
+        "Attraction",
+        "1",
+        "horaires",
+      ])
+    }
+  )
+  .then(
+    function(result){
+      db.insert("keyword",[
+        "name",
+        "importance",
+        'informations',
+      ], [
+        "Monument",
+        "1",
+        "horaires",
+      ])
+    }
+  )
+  .then(
+    function(result){
+      db.insert("keyword",[
+        "name",
+        "importance",
+        'informations',
+      ], [
+        "Utilitaire",
+        "1",
+        "horaires",
+      ])
+    }
+  )
+  .then(
+    function(result){
+      db.insert("keyword",[
+        "name",
+        "importance",
+        'informations',
+      ], [
+        "Hygiène",
+        "1",
+        "horaires",
+      ])
+    }
+  )
+  .then(
+    function(result){
+      db.insert("keyword",[
+        "name",
+        "importance",
+        'informations',
+      ], [
+        "Sports_Collectifs",
+        "2",
+        "horaires",
       ])
     }
   )

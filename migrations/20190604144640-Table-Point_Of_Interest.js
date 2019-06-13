@@ -20,9 +20,9 @@ exports.up = function(db) {
       type: 'int', primaryKey: true, autoIncrement: true, notNull: true,
     },
     name: { type: 'char', length: 80, notNull: true },
-    informations: { type: 'char', length: 255 },
     latitude: { type : "float", notNull : true },
     longitude: { type : "float", notNull : true },
+    creation_date: {type: 'datetime', notNull: true, },
     author_id: {
       type: 'int',
       notNull: true,
@@ -48,18 +48,18 @@ exports.up = function(db) {
     function(result){
       db.insert("point_of_interest", [
         "name",
-        "informations",
+        "creation_date",
         "author_id",
         "picture_id",
         "latitude",
         "longitude"
       ], [
         "Piscine Talleyrand",
-        "mardi 07:00–11:45",
+        "2019-06-12 08:00:00",
         "1",
         "1",
-        "49.2568862",
-        "4.0251282"
+        "49.2563256",
+        "4.025759"
       ])
     }
   )
@@ -67,14 +67,14 @@ exports.up = function(db) {
     function(result){
       db.insert("point_of_interest", [
         "name",
-        "informations",
+        "creation_date",
         "author_id",
         "picture_id",
         "latitude",
         "longitude"
       ], [
         "Skate Park",
-        "",
+        "2019-06-10 09:00:00",
         "1",
         "2",
         "49.244777",
@@ -86,14 +86,14 @@ exports.up = function(db) {
     function(result){
       db.insert("point_of_interest", [
         "name",
-        "informations",
+        "creation_date",
         "author_id",
         "picture_id",
         "latitude",
         "longitude"
       ], [
         "Terrain de foot",
-        "",
+        "2019-05-02 08:20:03",
         "1",
         "3",
         "49.276670",
@@ -105,14 +105,14 @@ exports.up = function(db) {
     function(result){
       db.insert("point_of_interest", [
         "name",
-        "informations",
+        "creation_date",
         "author_id",
         "picture_id",
         "latitude",
         "longitude"
       ], [
         "Table de Ping Pong",
-        "",
+        "2018-05-12 08:00:40",
         "1",
         "4",
         "49.240366",
@@ -124,14 +124,14 @@ exports.up = function(db) {
     function(result){
       db.insert("point_of_interest", [
         "name",
-        "informations",
+        "creation_date",
         "author_id",
         "picture_id",
         "latitude",
         "longitude"
       ], [
         "Table de Ping Pong",
-        "",
+        "2019-03-01 07:04:10",
         "1",
         "5",
         "49.276670",
@@ -139,7 +139,63 @@ exports.up = function(db) {
       ])
     }
   )
-  
+  .then(
+    function(result){
+      db.insert("point_of_interest", [
+        "name",
+        "creation_date",
+        "author_id",
+        "picture_id",
+        "latitude",
+        "longitude"
+      ], [
+        "Table de Ping Pong",
+        "2019-03-01 07:04:10",
+        "1",
+        "6",
+        "49.243785",
+        "3.989211"
+      ])
+    }
+  )
+  .then(
+    function(result){
+      db.insert("point_of_interest", [
+        "name",
+        "creation_date",
+        "author_id",
+        "picture_id",
+        "latitude",
+        "longitude"
+      ], [
+        "Jardin",
+        "2019-03-01 07:04:10",
+        "1",
+        "7",
+        "49.244871",
+        "3.990526"
+      ])
+    }
+  )
+  .then(
+    function(result){
+      db.insert("point_of_interest", [
+        "name",
+        "creation_date",
+        "author_id",
+        "picture_id",
+        "latitude",
+        "longitude"
+      ], [
+        "Parc",
+        "2019-02-04 07:04:10",
+        "1",
+        "8",
+        "49.248961",
+        "3.997111"
+      ])
+    }
+  )
 };
 
 exports.down = function(db) {
