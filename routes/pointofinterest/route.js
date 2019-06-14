@@ -5,14 +5,14 @@ const connection = require('../../conf');
 const transformPoiSampleJson = require('../../functions/transformPoiSampleJson');
 const transformPoiIdJson = require('../../functions/transformPoiIdJson');
 const getPoiInfosById = require('../../queries/getPoiInfosById');
-const getSamplePoiInfos = require('../../queries/getSamplePoiInfos')
+const getSamplePoisInfos = require('../../queries/getSamplePoisInfos')
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
 router.get('/sample', (req, res) => {
-  connection.query(getSamplePoiInfos, (err, datas) => {
+  connection.query(getSamplePoisInfos, (err, datas) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
