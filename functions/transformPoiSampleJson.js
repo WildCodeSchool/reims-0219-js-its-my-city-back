@@ -15,6 +15,7 @@ const transformPoiSampleJson = datas => (
       condition: data.condition,
       functional: data.functional,
     },
+    keywordId: data.keyword_id,
   }))
 );
 
