@@ -7,6 +7,7 @@ const transformPoiIdJson = require('../../functions/transformPoiIdJson');
 const getPoiInfosById = require('../../queries/getPoiInfosById');
 const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
 const createNewPoi = require('../../queries/createNewPoi');
+const getKeywords = require('../../queries/getKeywords');
 
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -19,6 +20,16 @@ router.get('/sample', (req, res) => {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
       res.json(transformPoiSampleJson(datas));
+    }
+  });
+});
+
+router.get('/keywords', (req, res) => {
+  connection.query(getKeywords, (err, datas) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
+    } else {
+      res.json(datas);
     }
   });
 });
