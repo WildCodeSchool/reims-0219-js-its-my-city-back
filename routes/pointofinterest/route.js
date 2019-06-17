@@ -6,7 +6,8 @@ const transformPoiSampleJson = require('../../functions/transformPoiSampleJson')
 const transformPoiIdJson = require('../../functions/transformPoiIdJson');
 const getPoiInfosById = require('../../queries/getPoiInfosById');
 const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
-const createNewPoi = require('../../queries/createNewPoi');
+const { createNewPoi } = require('../../queries/createNewPoi');
+const { addNewPic } = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
 
 router.use((req, res, next) => {
@@ -34,15 +35,26 @@ router.get('/keywords', (req, res) => {
   });
 });
 
-router.post('/create', (req, res) => {
-  connection.query(createNewPoi, (err, results) => {
+router.post('/picture', (req, res) => {
+  connection.query(addNewPic, (err, results) => {
     if (err) {
-      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
+      res.status(500).send(`Erreur los de la création de l'image : ${err}`);
     } else {
       res.json(results);
     }
   });
 });
+
+router.post('/create', (req, res) => {
+  connection.query(createNewPoi, (err, results) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la création du point d'interet : ${err}`);
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 
 router.get('/:id', (req, res) => {
   const poiId = req.params.id;

@@ -1,5 +1,7 @@
-const createNewPoi = `
-INSERT INTO point_of_interest (name, latitude, longitude, creation_date, author_id, picture_id) 
-       VALUES ('Parc', 49.0358, 4.0158, '03.08.18', 1, 4)`;
+const createNewPoi = `INSERT INTO point_of_interest (name, latitude, longitude, creation_date, author_id, picture_id) 
+                      VALUES ('Parc', 49.0358, 4.0158, '2019-06-17', 1 , 8 )`;
 
-module.exports = createNewPoi;
+const addNewPic = `INSERT INTO picture (name , url)
+                   VALUES ('Parc', 'abc')`;
+
+module.exports = { createNewPoi, addNewPic };
