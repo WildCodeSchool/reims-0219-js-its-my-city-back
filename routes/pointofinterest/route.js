@@ -5,7 +5,9 @@ const connection = require('../../conf');
 const transformPoiSampleJson = require('../../functions/transformPoiSampleJson');
 const transformPoiIdJson = require('../../functions/transformPoiIdJson');
 const getPoiInfosById = require('../../queries/getPoiInfosById');
-const getSamplePoisInfos = require('../../queries/getSamplePoisInfos')
+const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
+const getKeywords = require('../../queries/getKeywords');
+
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
@@ -21,6 +23,16 @@ router.get('/sample', (req, res) => {
   });
 });
 
+router.get('/keywords', (req, res) => {
+  connection.query(getKeywords, (err, datas) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
+    } else {
+      res.json(datas);
+    }
+  });
+});
+
 router.get('/:id', (req, res) => {
   const poiId = req.params.id;
   connection.query(getPoiInfosById, [poiId], (err, datas) => {
@@ -31,5 +43,6 @@ router.get('/:id', (req, res) => {
     }
   });
 });
+
 
 module.exports = router;
