@@ -34,6 +34,16 @@ router.get('/keywords', (req, res) => {
   });
 });
 
+router.post('/create', (req, res) => {
+  connection.query(createNewPoi, (err, results) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 router.get('/:id', (req, res) => {
   const poiId = req.params.id;
   connection.query(getPoiInfosById, [poiId], (err, datas) => {
@@ -41,16 +51,6 @@ router.get('/:id', (req, res) => {
       res.status(500).send(`Erreur lors de la récupération du point d'interet ${poiId} : ${err}`);
     } else {
       res.json(transformPoiIdJson(datas));
-    }
-  });
-});
-
-router.post('/create', (req, res) => {
-  connection.query(createNewPoi, (err, results) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
-    } else {
-      res.sendStatus(200);
     }
   });
 });
