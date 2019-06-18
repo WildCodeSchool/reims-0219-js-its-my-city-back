@@ -6,6 +6,7 @@ const transformPoiSampleJson = require('../../functions/transformPoiSampleJson')
 const transformPoiIdJson = require('../../functions/transformPoiIdJson');
 const getPoiInfosById = require('../../queries/getPoiInfosById');
 const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
+const getSamplePoisInfosCriteria = require('../../queries/getSamplePoisInfosCriteria');
 const { createNewPoi } = require('../../queries/createNewPoi');
 const { addNewPic } = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
@@ -16,7 +17,12 @@ router.use((req, res, next) => {
 });
 
 router.get('/sample', (req, res) => {
-  connection.query(getSamplePoisInfos, (err, datas) => {
+  connection.query(`${getSamplePoisInfos} WHERE keyword.name = 'Sport' ${getSamplePoisInfosCriteria} 
+  UNION (${getSamplePoisInfos} WHERE keyword.name = 'Nature' ${getSamplePoisInfosCriteria})
+  UNION (${getSamplePoisInfos} WHERE keyword.name = 'Attraction' ${getSamplePoisInfosCriteria})
+  UNION (${getSamplePoisInfos} WHERE keyword.name = 'Monument' ${getSamplePoisInfosCriteria})
+  UNION (${getSamplePoisInfos} WHERE keyword.name = 'Utilitaire' ${getSamplePoisInfosCriteria})
+  UNION (${getSamplePoisInfos} WHERE keyword.name = 'Hygiène' ${getSamplePoisInfosCriteria});`, (err, datas) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
