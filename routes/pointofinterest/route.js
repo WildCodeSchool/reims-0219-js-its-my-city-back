@@ -16,13 +16,16 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get('/sample', (req, res) => {
+router.get('/sample/:latitude/:longitude', (req, res) => {
+  const latToUse = req.params.latitude;
+  const longToUse = req.params.longitude;
   connection.query(`${getSamplePoisInfos} WHERE keyword.name = 'Sport' ${getSamplePoisInfosCriteria} 
   UNION (${getSamplePoisInfos} WHERE keyword.name = 'Nature' ${getSamplePoisInfosCriteria})
   UNION (${getSamplePoisInfos} WHERE keyword.name = 'Attraction' ${getSamplePoisInfosCriteria})
   UNION (${getSamplePoisInfos} WHERE keyword.name = 'Monument' ${getSamplePoisInfosCriteria})
   UNION (${getSamplePoisInfos} WHERE keyword.name = 'Utilitaire' ${getSamplePoisInfosCriteria})
-  UNION (${getSamplePoisInfos} WHERE keyword.name = 'Hygiène' ${getSamplePoisInfosCriteria});`, (err, datas) => {
+  UNION (${getSamplePoisInfos} WHERE keyword.name = 'Hygiène' ${getSamplePoisInfosCriteria});`,
+  [latToUse, longToUse, latToUse, longToUse, latToUse, longToUse, latToUse, longToUse, latToUse, longToUse, latToUse, longToUse], (err, datas) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
