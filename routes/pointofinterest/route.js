@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable func-names */
 const express = require('express');
 
 const router = express.Router();
@@ -11,8 +13,31 @@ const { addNewPic } = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
 
 router.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  let { send } = res;
+  let sent = false;
+  res.send = function (data) {
+    if (sent) return;
+    send.bind(res)(data);
+    sent = true;
+  };
   next();
+});
+
+router.post('/', (req, res) => {
+  connection.query(createNewPoi, (err, datas) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la création du point d'interet : ${err}`);
+    } else {
+      res.json(datas);
+    }
+  });
+  connection.query(addNewPic, (err, datas) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
+    } else {
+      res.json(datas);
+    }
+  });
 });
 
 router.get('/sample', (req, res) => {
@@ -34,27 +59,6 @@ router.get('/keywords', (req, res) => {
     }
   });
 });
-
-router.post('/picture', (req, res) => {
-  connection.query(addNewPic, (err, results) => {
-    if (err) {
-      res.status(500).send(`Erreur los de la création de l'image : ${err}`);
-    } else {
-      res.json(results);
-    }
-  });
-});
-
-router.post('/create', (req, res) => {
-  connection.query(createNewPoi, (err, results) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la création du point d'interet : ${err}`);
-    } else {
-      res.json(results);
-    }
-  });
-});
-
 
 router.get('/:id', (req, res) => {
   const poiId = req.params.id;
