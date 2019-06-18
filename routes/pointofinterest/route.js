@@ -1,8 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable prefer-const */
 /* eslint-disable func-names */
 const express = require('express');
 
 const router = express.Router();
+const bodyParser = require('body-parser');
+
 const connection = require('../../conf');
 const transformPoiSampleJson = require('../../functions/transformPoiSampleJson');
 const transformPoiIdJson = require('../../functions/transformPoiIdJson');
@@ -11,6 +14,14 @@ const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
 const { createNewPoi } = require('../../queries/createNewPoi');
 const { addNewPic } = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
+
+
+// Support JSON-encoded bodies
+router.use(bodyParser.json());
+// Support URL-encoded bodies
+router.use(bodyParser.urlencoded({
+  extended: true,
+}));
 
 router.use((req, res, next) => {
   let { send } = res;
@@ -24,16 +35,28 @@ router.use((req, res, next) => {
 });
 
 router.post('/', (req, res) => {
-  connection.query(createNewPoi, (err, datas) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la création du point d'interet : ${err}`);
-    } else {
-      res.json(datas);
-    }
-  });
-  connection.query(addNewPic, (err, datas) => {
+  const formData = req.body;
+  console.log(formData);
+  connection.query(addNewPic, formData, (err) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+  connection.query(createNewPoi, formData, (err) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+
+router.get('/', (req, res) => {
+  connection.query(getKeywords, (err, datas) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
     } else {
       res.json(datas);
     }
@@ -46,16 +69,6 @@ router.get('/sample', (req, res) => {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
       res.json(transformPoiSampleJson(datas));
-    }
-  });
-});
-
-router.get('/keywords', (req, res) => {
-  connection.query(getKeywords, (err, datas) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
-    } else {
-      res.json(datas);
     }
   });
 });
