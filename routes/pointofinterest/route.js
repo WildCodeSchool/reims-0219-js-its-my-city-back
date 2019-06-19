@@ -25,7 +25,12 @@ router.get('/sample/:latitude/:longitude', (req, res) => {
   UNION (${getSamplePoisInfos} WHERE keyword.name = 'Monument' ${getSamplePoisInfosCriteria})
   UNION (${getSamplePoisInfos} WHERE keyword.name = 'Utilitaire' ${getSamplePoisInfosCriteria})
   UNION (${getSamplePoisInfos} WHERE keyword.name = 'Hygiène' ${getSamplePoisInfosCriteria});`,
-  [latToUse, longToUse, latToUse, longToUse, latToUse, longToUse, latToUse, longToUse, latToUse, longToUse, latToUse, longToUse], (err, datas) => {
+  [latToUse, longToUse, latToUse,
+    latToUse, longToUse, latToUse,
+    latToUse, longToUse, latToUse,
+    latToUse, longToUse, latToUse,
+    latToUse, longToUse, latToUse,
+    latToUse, longToUse, latToUse], (err, datas) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
