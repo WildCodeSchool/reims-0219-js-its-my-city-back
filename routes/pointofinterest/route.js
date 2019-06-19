@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.get('/', (req, res) => {
+router.get('/keywords', (req, res) => {
   connection.query(getKeywords, (err, datas) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
