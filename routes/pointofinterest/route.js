@@ -37,11 +37,11 @@ router.use((req, res, next) => {
 router.post('/', (req, res) => {
   const formData = req.body;
   console.log(formData);
-  connection.query(addNewPic, formData, (err) => {
+  connection.query(addNewPic, [formData], (err) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
     } else {
-      res.sendStatus(200);
+      res.status(200).send('Votre point à bien été ajouté');
     }
   });
   connection.query(createNewPoi, formData, (err) => {
