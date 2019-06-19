@@ -97,14 +97,14 @@ router.get('/filter/:keyword', (req, res) => {
   });
 });
 
-router.get('/sample', (req, res) => {
-  connection.query(getSamplePoisInfos, (err, datas) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
-    } else {
-      res.json(transformPoiSampleJson(datas));
-    }
-  });
-});
+// router.get('/sample', (req, res) => {
+//   connection.query(getSamplePoisInfos, (err, datas) => {
+//     if (err) {
+//       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
+//     } else {
+//       res.json(transformPoiSampleJson(datas));
+//     }
+//   });
+// });
 
 module.exports = router;

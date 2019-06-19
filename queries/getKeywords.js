@@ -1,3 +1,3 @@
-const getKeywords = 'SELECT name FROM keyword';
+const getKeywords = 'SELECT name, importance FROM keyword';
 
 module.exports = getKeywords;
