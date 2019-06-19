@@ -10,7 +10,6 @@ const connection = require('../../conf');
 const transformPoiSampleJson = require('../../functions/transformPoiSampleJson');
 const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
 const { createNewPoi } = require('../../queries/createNewPoi');
-const { addNewPic } = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
 
 
@@ -34,13 +33,6 @@ router.use((req, res, next) => {
 
 router.post('/', (req, res) => {
   const formData = req.body;
-  connection.query(addNewPic, formData, (err) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
-    } else {
-      res.status(200).send('Votre point à bien été ajouté');
-    }
-  });
   connection.query(createNewPoi, formData, (err) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
@@ -50,7 +42,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.get('/', (req, res) => {
+router.get('/keywords', (req, res) => {
   connection.query(getKeywords, (err, datas) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
