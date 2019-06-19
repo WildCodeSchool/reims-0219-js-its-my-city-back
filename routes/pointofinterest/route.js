@@ -8,8 +8,6 @@ const bodyParser = require('body-parser');
 
 const connection = require('../../conf');
 const transformPoiSampleJson = require('../../functions/transformPoiSampleJson');
-const transformPoiIdJson = require('../../functions/transformPoiIdJson');
-const getPoiInfosById = require('../../queries/getPoiInfosById');
 const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
 const { createNewPoi } = require('../../queries/createNewPoi');
 const { addNewPic } = require('../../queries/createNewPoi');
@@ -40,7 +38,7 @@ router.post('/', (req, res) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
     } else {
-      res.sendStatus(200);
+      res.status(200).send('Votre point à bien été ajouté');
     }
   });
   connection.query(createNewPoi, formData, (err) => {
