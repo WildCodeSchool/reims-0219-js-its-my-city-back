@@ -46,16 +46,6 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.post('/create', (req, res) => {
-  connection.query(createNewPoi, (err, results) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
-    } else {
-      res.sendStatus(200);
-    }
-  });
-});
-
 router.get('/filter/:keyword', (req, res) => {
   const keywordToSearch = req.params.keyword;
   connection.query(getFilteredPoi, [keywordToSearch], (err, datas) => {
