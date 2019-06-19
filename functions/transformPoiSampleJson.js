@@ -3,7 +3,7 @@ const transformPoiSampleJson = datas => (
     id: data.id,
     name: data.name,
     author: data.author,
-    picture_url: data.url,
+    picture_url: data.picurl,
     creation_date: data.creation_date,
     localisation: [
       data.latitude,
