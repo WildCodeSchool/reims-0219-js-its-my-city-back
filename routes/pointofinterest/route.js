@@ -36,7 +36,6 @@ router.use((req, res, next) => {
 
 router.post('/', (req, res) => {
   const formData = req.body;
-  console.log(formData);
   connection.query(addNewPic, formData, (err) => {
     if (err) {
       res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
@@ -69,17 +68,6 @@ router.get('/sample', (req, res) => {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
       res.json(transformPoiSampleJson(datas));
-    }
-  });
-});
-
-router.get('/:id', (req, res) => {
-  const poiId = req.params.id;
-  connection.query(getPoiInfosById, [poiId], (err, datas) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la récupération du point d'interet ${poiId} : ${err}`);
-    } else {
-      res.json(transformPoiIdJson(datas));
     }
   });
 });
