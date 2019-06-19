@@ -17,10 +17,18 @@ const getFilteredPoi = require('../../queries/getFilteredPoi');
 
 // Support JSON-encoded bodies
 router.use(bodyParser.json());
+
 // Support URL-encoded bodies
 router.use(bodyParser.urlencoded({
   extended: true,
 }));
+
+// allow to get and post content from localhost to localhost
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 router.use((req, res, next) => {
   let { send } = res;
@@ -32,17 +40,19 @@ router.use((req, res, next) => {
   };
   next();
 });
+
 router.post('/', (req, res) => {
   const formData = req.body;
   connection.query(createNewPoi, [formData], (err) => {
     if (err) {
-      res.status(500).send(`Erreur lors de la récupération de l'image : ${err}`);
+      res.status(500).send(`Erreur lors de la récupération des données : ${err}`);
     } else {
       res.sendStatus(200);
     }
   });
-})
+});
 
+// get two closest pois per keyword in a 3 km radius around the user at loading
 router.get('/sample/:latitude/:longitude', (req, res) => {
   const latToUse = req.params.latitude;
   const longToUse = req.params.longitude;
