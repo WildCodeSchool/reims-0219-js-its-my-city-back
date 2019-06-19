@@ -8,6 +8,7 @@ const getPoiInfosById = require('../../queries/getPoiInfosById');
 const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
 const createNewPoi = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
+const getFilteredPoi = require('../../queries/getFilteredPoi');
 
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -51,6 +52,17 @@ router.post('/create', (req, res) => {
       res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
     } else {
       res.sendStatus(200);
+    }
+  });
+});
+
+router.get('/filter/:keyword', (req, res) => {
+  const keywordToSearch = req.params.keyword;
+  connection.query(getFilteredPoi, [keywordToSearch], (err, datas) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
+    } else {
+      res.json(transformPoiSampleJson(datas));
     }
   });
 });
