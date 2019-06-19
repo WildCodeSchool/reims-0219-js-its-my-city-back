@@ -11,6 +11,7 @@ const transformPoiSampleJson = require('../../functions/transformPoiSampleJson')
 const getSamplePoisInfos = require('../../queries/getSamplePoisInfos');
 const { createNewPoi } = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
+const getFilteredPoi = require('../../queries/getFilteredPoi');
 
 
 // Support JSON-encoded bodies
@@ -48,6 +49,17 @@ router.get('/keywords', (req, res) => {
       res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
     } else {
       res.json(datas);
+    }
+  });
+});
+
+router.get('/filter/:keyword', (req, res) => {
+  const keywordToSearch = req.params.keyword;
+  connection.query(getFilteredPoi, [keywordToSearch], (err, datas) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
+    } else {
+      res.json(transformPoiSampleJson(datas));
     }
   });
 });
