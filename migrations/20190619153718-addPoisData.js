@@ -218,8 +218,8 @@ exports.up = function (db) {
           'picture_id',
         ], [
           'Terrains de Football Georges Hebert',
-          '49.282505',
-          '4.',
+          '49.282522',
+          '4.018788',
           '2019-06-18',
           '1',
           '9',
