@@ -1,3 +1,6 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-unused-vars */
+/* eslint-disable func-names */
 
 
 let dbm;
@@ -31,7 +34,7 @@ exports.up = function (db) {
     '2',
   ])
     .then(
-      function(result){
+      (result) => {
         db.insert('grades', [
           'global_grade',
           'accessibility',
@@ -50,7 +53,7 @@ exports.up = function (db) {
       },
     )
     .then(
-     function(result) {
+      (result) => {
         db.insert('grades', [
           'global_grade',
           'accessibility',
@@ -69,7 +72,7 @@ exports.up = function (db) {
       },
     )
     .then(
-      function(result){
+      (result) => {
         db.insert('grades', [
           'global_grade',
           'accessibility',
