@@ -1,3 +1,6 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-unused-vars */
+/* eslint-disable func-names */
 
 
 let dbm;
@@ -23,15 +26,15 @@ exports.up = function (db) {
     'user_id',
     'poi_id',
   ], [
-    '2.33',
+    '4',
+    '5',
     '3',
-    '2',
-    '2',
+    '4',
     '1',
     '2',
   ])
     .then(
-      function(result){
+      (result) => {
         db.insert('grades', [
           'global_grade',
           'accessibility',
@@ -40,17 +43,17 @@ exports.up = function (db) {
           'user_id',
           'poi_id',
         ], [
-          '4',
-          '5',
+          '2',
+          '2',
+          '1',
           '3',
-          '4',
           '1',
           '3',
         ]);
       },
     )
     .then(
-     function(result) {
+      (result) => {
         db.insert('grades', [
           'global_grade',
           'accessibility',
@@ -60,8 +63,8 @@ exports.up = function (db) {
           'poi_id',
         ], [
           '2',
-          '2',
           '1',
+          '2',
           '3',
           '1',
           '4',
@@ -69,7 +72,45 @@ exports.up = function (db) {
       },
     )
     .then(
-      function(result){
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '3',
+          '4',
+          '1',
+          '2',
+          '1',
+          '5',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '4',
+          '3',
+          '5',
+          '4',
+          '1',
+          '6',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
         db.insert('grades', [
           'global_grade',
           'accessibility',
@@ -83,7 +124,216 @@ exports.up = function (db) {
           '2',
           '3',
           '1',
-          '5',
+          '7',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '8',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '9',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '10',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '11',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '12',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '13',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '14',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '15',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '16',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '17',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '18',
         ]);
       },
     );

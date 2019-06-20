@@ -1,21 +1,24 @@
-'use strict';
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable func-names */
+/* eslint-disable no-unused-vars */
 
-var dbm;
-var type;
-var seed;
+
+let dbm;
+let type;
+let seed;
 
 /**
   * We receive the dbmigrate dependency from dbmigrate initially.
   * This enables us to not have to rely on NODE_PATH.
   */
-exports.setup = function(options, seedLink) {
+exports.setup = function (options, seedLink) {
   dbm = options.dbmigrate;
   type = dbm.dataType;
   seed = seedLink;
 };
 
-exports.up = function(db) {
-  return  db.createTable('grades', {
+exports.up = function (db) {
+  return db.createTable('grades', {
     id: {
       type: 'int', primaryKey: true, autoIncrement: true, notNull: true,
     },
@@ -45,33 +48,30 @@ exports.up = function(db) {
     },
   })
     .then(
-      function(result) {
-        db.insert("grades", [
-          "global_grade",
-          "accessibility",
-          "condition",
-          "functional",
-          "user_id",
-          "poi_id",
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
         ], [
-          "4",
-          "4",
-          "3",
-          "3",
-          "1",
-          "1",
+          '4',
+          '4',
+          '3',
+          '3',
+          '1',
+          '1',
         ]);
       },
-    )
-  
-  
-  
+    );
 };
 
-exports.down = function(db) {
+exports.down = function (db) {
   return db.dropTable('grades');
 };
 
 exports._meta = {
-  "version": 1,
+  version: 1,
 };
