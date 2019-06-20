@@ -42,7 +42,7 @@ exports.up = function (db) {
   })
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -53,7 +53,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -64,7 +64,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -75,7 +75,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -86,7 +86,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -97,7 +97,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -108,7 +108,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -119,7 +119,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -130,7 +130,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -141,7 +141,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -152,7 +152,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -163,7 +163,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -174,7 +174,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -185,7 +185,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -196,7 +196,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -207,7 +207,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -218,7 +218,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -229,7 +229,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -240,7 +240,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -251,7 +251,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -262,7 +262,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -273,7 +273,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -284,7 +284,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -295,7 +295,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -306,7 +306,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -317,7 +317,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -328,7 +328,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -339,7 +339,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -350,7 +350,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -361,7 +361,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -372,7 +372,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -383,7 +383,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -394,7 +394,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -405,7 +405,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -416,7 +416,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -427,7 +427,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -438,7 +438,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -449,7 +449,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -460,7 +460,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -471,7 +471,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -482,7 +482,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -493,7 +493,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -504,7 +504,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -515,7 +515,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -526,7 +526,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -537,7 +537,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -548,7 +548,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -559,7 +559,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -570,7 +570,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -581,7 +581,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -592,7 +592,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -603,7 +603,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -614,7 +614,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -625,7 +625,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -636,7 +636,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -647,7 +647,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -658,7 +658,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -669,7 +669,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -680,7 +680,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -691,7 +691,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -702,7 +702,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -713,7 +713,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -724,7 +724,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -735,7 +735,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -746,7 +746,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -757,7 +757,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [
@@ -768,7 +768,7 @@ exports.up = function (db) {
     )
     .then(
       (result) => {
-        db.insert('poi_keywords', [
+        db.insert('keyword_hierarchy', [
           'keyword_parent',
           'keyword_children',
         ], [

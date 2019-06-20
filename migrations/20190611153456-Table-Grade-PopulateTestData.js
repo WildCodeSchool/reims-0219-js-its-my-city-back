@@ -26,32 +26,13 @@ exports.up = function (db) {
     'user_id',
     'poi_id',
   ], [
-    '2.33',
+    '4',
+    '5',
     '3',
-    '2',
-    '2',
+    '4',
     '1',
-    '1',
+    '2',
   ])
-    .then(
-      (result) => {
-        db.insert('grades', [
-          'global_grade',
-          'accessibility',
-          'condition',
-          'functional',
-          'user_id',
-          'poi_id',
-        ], [
-          '4',
-          '5',
-          '3',
-          '4',
-          '1',
-          '2',
-        ]);
-      },
-    )
     .then(
       (result) => {
         db.insert('grades', [
