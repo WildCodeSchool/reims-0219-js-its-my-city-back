@@ -31,7 +31,7 @@ exports.up = function (db) {
     '2',
     '2',
     '1',
-    '2',
+    '1',
   ])
     .then(
       (result) => {
@@ -48,7 +48,7 @@ exports.up = function (db) {
           '3',
           '4',
           '1',
-          '3',
+          '2',
         ]);
       },
     )
@@ -65,6 +65,25 @@ exports.up = function (db) {
           '2',
           '2',
           '1',
+          '3',
+          '1',
+          '3',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
           '3',
           '1',
           '4',
@@ -81,10 +100,10 @@ exports.up = function (db) {
           'user_id',
           'poi_id',
         ], [
-          '2',
+          '3',
+          '4',
           '1',
           '2',
-          '3',
           '1',
           '5',
         ]);
@@ -100,10 +119,10 @@ exports.up = function (db) {
           'user_id',
           'poi_id',
         ], [
-          '3',
           '4',
-          '1',
-          '2',
+          '3',
+          '5',
+          '4',
           '1',
           '6',
         ]);
@@ -119,10 +138,10 @@ exports.up = function (db) {
           'user_id',
           'poi_id',
         ], [
-          '4',
+          '2',
+          '1',
+          '2',
           '3',
-          '5',
-          '4',
           '1',
           '7',
         ]);
@@ -163,25 +182,6 @@ exports.up = function (db) {
           '3',
           '1',
           '9',
-        ]);
-      },
-    )
-    .then(
-      (result) => {
-        db.insert('grades', [
-          'global_grade',
-          'accessibility',
-          'condition',
-          'functional',
-          'user_id',
-          'poi_id',
-        ], [
-          '2',
-          '1',
-          '2',
-          '3',
-          '1',
-          '10',
         ]);
       },
     )
@@ -276,6 +276,25 @@ exports.up = function (db) {
           '2',
           '3',
           '1',
+          '14',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
           '15',
         ]);
       },
@@ -334,25 +353,6 @@ exports.up = function (db) {
           '3',
           '1',
           '18',
-        ]);
-      },
-    )
-    .then(
-      (result) => {
-        db.insert('grades', [
-          'global_grade',
-          'accessibility',
-          'condition',
-          'functional',
-          'user_id',
-          'poi_id',
-        ], [
-          '2',
-          '1',
-          '2',
-          '3',
-          '1',
-          '19',
         ]);
       },
     );

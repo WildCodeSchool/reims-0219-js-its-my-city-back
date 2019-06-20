@@ -112,6 +112,16 @@ exports.up = function (db) {
           'https://www.reims.fr/fileadmin/_processed_/5/a/csm_Lac_6f58d49181.jpg',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('picture', [
+          'name',
+          'url',
+        ], ['standard picture',
+          'https://i.vimeocdn.com/portrait/10549664_300x300.webp',
+        ]);
+      },
     );
 };
 

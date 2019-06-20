@@ -33,7 +33,7 @@ exports.up = function (db) {
           'importance',
           'informations',
         ], [
-          'Nature',
+          'Sport & Loisirs',
           '1',
           'horaires',
         ]);
@@ -46,7 +46,7 @@ exports.up = function (db) {
           'importance',
           'informations',
         ], [
-          'Sport',
+          'Nature & Développement Durable',
           '1',
           'horaires',
         ]);
@@ -59,7 +59,7 @@ exports.up = function (db) {
           'importance',
           'informations',
         ], [
-          'Attraction',
+          'Services Publics',
           '1',
           'horaires',
         ]);
@@ -72,7 +72,7 @@ exports.up = function (db) {
           'importance',
           'informations',
         ], [
-          'Monument',
+          'Vie Quotidienne',
           '1',
           'horaires',
         ]);
@@ -85,34 +85,8 @@ exports.up = function (db) {
           'importance',
           'informations',
         ], [
-          'Utilitaire',
+          'Transports & Mobilité',
           '1',
-          'horaires',
-        ]);
-      },
-    )
-    .then(
-      (result) => {
-        db.insert('keyword', [
-          'name',
-          'importance',
-          'informations',
-        ], [
-          'Hygiène',
-          '1',
-          'horaires',
-        ]);
-      },
-    )
-    .then(
-      (result) => {
-        db.insert('keyword', [
-          'name',
-          'importance',
-          'informations',
-        ], [
-          'Sports_Collectifs',
-          '2',
           'horaires',
         ]);
       },
