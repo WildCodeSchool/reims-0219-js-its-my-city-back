@@ -779,6 +779,188 @@ exports.up = function (db) {
           'horaires',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Parking voiture',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Horodateur',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Parking vélo et moto',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Parking camping-car',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Aire de caravanes',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Parking poids lourds',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Parking + tramway',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Station de gonflage',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Gare',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Arrêt de bus',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Arrêt de tramway',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Aire de covoiturage',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Station de taxis',
+          '2',
+          'horaires',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('keyword', [
+          'name',
+          'importance',
+          'informations',
+        ], [
+          'Gare routière',
+          '2',
+          'horaires',
+        ]);
+      },
     );
 };
 
