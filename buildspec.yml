@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10 
+    commands:
+      - echo install step...
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Compiling application...
+  post_build:
+    commands:
+      # - mkdir ./dist/server/.ebextensions/
+      # - cp ./infrastructure/proxy.config ./dist/server/.ebextensions/proxy.config
+artifacts:
+  name: ApiBuildArtifact
+  base-directory: ./
+  files:
+    - '**/*'
