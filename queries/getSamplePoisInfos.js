@@ -3,7 +3,7 @@ const getSamplePoisInfos = `(SELECT p.*,
 user.name as 'author', 
 picture.url as picurl, 
 pk.keyword_id,
-keyword.name as keyword_name,
+keyword.name AS firstImportanceKeyword, 
 grades.accessibility, 
 grades.condition, 
 grades.functional, 
@@ -15,6 +15,7 @@ JOIN user on p.author_id = user.id
 JOIN picture on picture.id=p.picture_id 
 LEFT JOIN grades on grades.poi_id = p.id 
 JOIN poi_keywords pk on pk.poi_id=p.id
-JOIN keyword on keyword.id=pk.keyword_id`;
+JOIN keyword_hierarchy h ON h.keyword_children=pk.keyword_id 
+JOIN keyword ON keyword.id=h.keyword_parent`;
 
 module.exports = getSamplePoisInfos;
