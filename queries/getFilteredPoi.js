@@ -2,7 +2,8 @@ const getFilteredPoi = `SELECT p.*,
 user.name as 'author',  
 picture.url as picurl,  
 pk.keyword_id, 
-keyword.name as keyword_name, 
+k.name as keyword_name, 
+K.name as firstImportanceKeyword, 
 grades.accessibility,  
 grades.condition,  
 grades.functional,  
@@ -12,8 +13,10 @@ JOIN user ON p.author_id = user.id
 JOIN picture ON picture.id=p.picture_id
   LEFT JOIN grades on grades.poi_id = p.id
     JOIN poi_keywords pk on pk.poi_id=p.id
-     JOIN keyword on keyword.id=pk.keyword_id 
-     WHERE keyword.name=?;
+     JOIN keyword_hierarchy h ON h.keyword_children=pk.keyword_id 
+     JOIN keyword k ON k.id=h.keyword_children
+     JOIN keyword K ON K.id=h.keyword_parent 
+     WHERE k.name=?;
 `;
 
 module.exports = getFilteredPoi;
