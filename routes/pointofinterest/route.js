@@ -13,6 +13,8 @@ const { createNewPoi } = require('../../queries/createNewPoi');
 const getKeywords = require('../../queries/getKeywords');
 const getFilteredPoi = require('../../queries/getFilteredPoi');
 const getFilteredPoiByKeyword1 = require('../../queries/getFilteredPoiByKeyword1');
+const { linkNewlyCreatedPoiWithKeyword } = require('../../queries/linkNewlyCreatedPoiWithKeyword');
+const insertGradesNewPoi = require('../../queries/insertGradesNewPoi');
 
 // Support JSON-encoded bodies
 router.use(bodyParser.json());
@@ -41,13 +43,37 @@ router.use((req, res, next) => {
 });
 
 router.post('/', (req, res) => {
-  const formData = { name: req.body.name, latitude: req.body.latitude, longitude: req.body.longitude };
+  const formData = {
+    name: req.body.name,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
+  };
+  const grades = {
+    global_grade: req.body.global_grade,
+    accessibility: req.body.accessibility,
+    condition: req.body.condition,
+    functional: req.body.functional,
+  };
   const authorName = req.body.author_id;
-  connection.query(createNewPoi, [formData, authorName], (err) => {
+  const { keyword } = req.body;
+  connection.query(createNewPoi, [formData, authorName], (err, result) => {
     if (err) {
-      res.status(500).send(`Erreur lors de la création : ${err}`);
+      res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
     } else {
-      res.sendStatus(200);
+      const resultId = { poi_id: result.insertId };
+      connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (error) => {
+        if (error) {
+          res.status(500).send(`Erreur lors de l'ajout du thème : ${error}`);
+        } else {
+          connection.query(insertGradesNewPoi, [grades, authorName, resultId.poi_id], (e) => {
+            if (e) {
+              res.status(500).send(`Erreur lors de l'ajout des notes : ${e}`);
+            } else {
+              res.sendStatus(200);
+            }
+          });
+        }
+      });
     }
   });
 });
