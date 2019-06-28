@@ -60,6 +60,7 @@ router.post('/', (req, res) => {
     if (err) {
       res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
     } else {
+      // Get the id of the poi created previously
       const resultId = { poi_id: result.insertId };
       connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (error) => {
         if (error) {
