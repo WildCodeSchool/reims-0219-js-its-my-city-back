@@ -5,7 +5,8 @@ const express = require('express');
 
 const router = express.Router();
 const bodyParser = require('body-parser');
-
+const formidable = require('formidable');
+const fs = require('fs');
 const connection = require('../../conf');
 const transformPoiSampleJson = require('../../functions/transformPoiSampleJson');
 const getSamplePois = require('../../queries/getSamplePois');
@@ -76,6 +77,24 @@ router.post('/', (req, res) => {
         }
       });
     }
+  });
+});
+
+// upload picture
+
+router.post('/picture', (req, res) => {
+  console.log(req);
+  let formData = new formidable.IncomingForm();
+  formData.parse(req, (fields, files) => {
+    let olpath = files.upload.path;
+    let newpath = `./public/images ${files.upload.name}`;
+    fs.rename(olpath, newpath, (err) => {
+      if (err) {
+        res.send('erreur lors du déplacement');
+      } else {
+        res.send('upload ok');
+      }
+    });
   });
 });
 
