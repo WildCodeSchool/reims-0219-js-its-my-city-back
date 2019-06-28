@@ -15,7 +15,6 @@ const getKeywords = require('../../queries/getKeywords');
 const getFilteredPoi = require('../../queries/getFilteredPoi');
 const getFilteredPoiByKeyword1 = require('../../queries/getFilteredPoiByKeyword1');
 
-
 // Support JSON-encoded bodies
 router.use(bodyParser.json());
 
@@ -43,10 +42,11 @@ router.use((req, res, next) => {
 });
 
 router.post('/', (req, res) => {
-  const formData = req.body;
-  connection.query(createNewPoi, [formData], (err) => {
+  const formData = { name: req.body.name, latitude: req.body.latitude, longitude: req.body.longitude };
+  const authorName = req.body.author_id;
+  connection.query(createNewPoi, [formData, authorName], (err) => {
     if (err) {
-      res.status(500).send(`Erreur lors de la récupération des données : ${err}`);
+      res.status(500).send(`Erreur lors de la création : ${err}`);
     } else {
       res.sendStatus(200);
     }
