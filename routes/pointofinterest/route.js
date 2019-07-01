@@ -86,7 +86,7 @@ router.post('/picture', (req, res) => {
   let formData = new formidable.IncomingForm();
   formData.parse(req, function (err, fields, files) {
     let olpath = files.file.path;
-    let newpath = `./public/images${files.file.name}`;
+    let newpath = `./public/images/${files.file.name}`;
     fs.rename(olpath, newpath, function (error) {
       if (error) {
         res.send(`erreur lors du déplacement :${error}`);
