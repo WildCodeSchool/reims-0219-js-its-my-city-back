@@ -58,6 +58,7 @@ router.post('/', (req, res) => {
   };
   const authorName = req.body.author_id;
   const { keyword } = req.body;
+  console.log(req.body);
   connection.query(createNewPoi, [formData, authorName], (err, result) => {
     if (err) {
       res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
