@@ -17,6 +17,7 @@ const getFilteredPoi = require('../../queries/getFilteredPoi');
 const getFilteredPoiByKeyword1 = require('../../queries/getFilteredPoiByKeyword1');
 const { linkNewlyCreatedPoiWithKeyword } = require('../../queries/linkNewlyCreatedPoiWithKeyword');
 const insertGradesNewPoi = require('../../queries/insertGradesNewPoi');
+const { createNewPicture } = require('../../queries/createNewPicture');
 
 // Support JSON-encoded bodies
 router.use(bodyParser.json());
@@ -58,26 +59,46 @@ router.post('/', (req, res) => {
   };
   const authorName = req.body.author_id;
   const { keyword } = req.body;
-  connection.query(createNewPoi, [formData, authorName], (err, result) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
-    } else {
-      // Get the id of the poi created previously
-      const resultId = { poi_id: result.insertId };
-      connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (error) => {
-        if (error) {
-          res.status(500).send(`Erreur lors de l'ajout du thème : ${error}`);
-        } else {
-          connection.query(insertGradesNewPoi, [grades, authorName, resultId.poi_id], (e) => {
-            if (e) {
-              res.status(500).send(`Erreur lors de l'ajout des notes : ${e}`);
-            } else {
-              res.sendStatus(200);
-            }
-          });
-        }
-      });
-    }
+
+  let pictureData = new formidable.IncomingForm();
+  pictureData.parse(req, function (errFormidable, fields, files) {
+    let olpath = files.file.path;
+    let newpath = `./public/images/${files.file.name}`;
+    fs.rename(olpath, newpath, function (errorRename) {
+      if (errorRename) {
+        res.send(`erreur lors du déplacement :${errorRename}`);
+      } else {
+        connection.query(createNewPicture, [files.file.name, files.file.name], (errorPic, resultPic) => {
+          if (errorPic) {
+            res.status(500).send(`Erreur lors de la création de l'image : ${errorPic}`);
+          } else {
+            // Get the id of the poi created previously
+            const resultPicture = { picture_id: resultPic.insertId };
+            connection.query(createNewPoi, [formData, authorName, resultPicture], (err, result) => {
+              if (err) {
+                res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
+              } else {
+                // Get the id of the poi created previously
+                const resultId = { poi_id: result.insertId };
+                connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (error) => {
+                  if (error) {
+                    res.status(500).send(`Erreur lors de l'ajout du thème : ${error}`);
+                  } else {
+                    connection.query(insertGradesNewPoi, [grades, authorName, resultId.poi_id], (e) => {
+                      if (e) {
+                        res.status(500).send(`Erreur lors de l'ajout des notes : ${e}`);
+                      } else {
+                        res.sendStatus(200);
+                      }
+                    });
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
   });
 });
 
@@ -85,6 +106,7 @@ router.post('/', (req, res) => {
 router.post('/picture', (req, res) => {
   let formData = new formidable.IncomingForm();
   formData.parse(req, function (err, fields, files) {
+    console.log(formData.openedFiles[0].name);
     let olpath = files.file.path;
     let newpath = `./public/images/${files.file.name}`;
     fs.rename(olpath, newpath, function (error) {
