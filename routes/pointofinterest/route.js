@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable prefer-const */
 /* eslint-disable func-names */
@@ -81,16 +82,14 @@ router.post('/', (req, res) => {
 });
 
 // upload picture
-
 router.post('/picture', (req, res) => {
-  console.log(req);
   let formData = new formidable.IncomingForm();
-  formData.parse(req, (fields, files) => {
-    let olpath = files.upload.path;
-    let newpath = `./public/images ${files.upload.name}`;
-    fs.rename(olpath, newpath, (err) => {
-      if (err) {
-        res.send('erreur lors du déplacement');
+  formData.parse(req, function (err, fields, files) {
+    let olpath = files.file.path;
+    let newpath = `./public/images${files.file.name}`;
+    fs.rename(olpath, newpath, function (error) {
+      if (error) {
+        res.send(`erreur lors du déplacement :${error}`);
       } else {
         res.send('upload ok');
       }
