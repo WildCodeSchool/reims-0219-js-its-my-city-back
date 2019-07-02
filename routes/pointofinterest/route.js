@@ -19,6 +19,7 @@ const { linkNewlyCreatedPoiWithKeyword } = require('../../queries/linkNewlyCreat
 const insertGradesNewPoi = require('../../queries/insertGradesNewPoi');
 const { createNewPicture } = require('../../queries/createNewPicture');
 
+
 // Support JSON-encoded bodies
 router.use(bodyParser.json());
 
@@ -45,6 +46,9 @@ router.use((req, res, next) => {
   next();
 });
 
+// Get the id of the poi created previously
+let resultPicture;
+
 router.post('/', (req, res) => {
   const formData = {
     name: req.body.name,
@@ -60,60 +64,51 @@ router.post('/', (req, res) => {
   const authorName = req.body.author_id;
   const { keyword } = req.body;
 
-  let pictureData = new formidable.IncomingForm();
-  pictureData.parse(req, function (errFormidable, fields, files) {
-    let olpath = files.file.path;
-    let newpath = `./public/images/${files.file.name}`;
-    fs.rename(olpath, newpath, function (errorRename) {
-      if (errorRename) {
-        res.send(`erreur lors du déplacement :${errorRename}`);
-      } else {
-        connection.query(createNewPicture, [files.file.name, files.file.name], (errorPic, resultPic) => {
-          if (errorPic) {
-            res.status(500).send(`Erreur lors de la création de l'image : ${errorPic}`);
-          } else {
-            // Get the id of the poi created previously
-            const resultPicture = { picture_id: resultPic.insertId };
-            connection.query(createNewPoi, [formData, authorName, resultPicture], (err, result) => {
-              if (err) {
-                res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
-              } else {
-                // Get the id of the poi created previously
-                const resultId = { poi_id: result.insertId };
-                connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (error) => {
-                  if (error) {
-                    res.status(500).send(`Erreur lors de l'ajout du thème : ${error}`);
-                  } else {
-                    connection.query(insertGradesNewPoi, [grades, authorName, resultId.poi_id], (e) => {
-                      if (e) {
-                        res.status(500).send(`Erreur lors de l'ajout des notes : ${e}`);
-                      } else {
-                        res.sendStatus(200);
-                      }
-                    });
-                  }
-                });
-              }
-            });
-          }
-        });
-      }
-    });
+
+  connection.query(createNewPoi, [formData, authorName, resultPicture], (err, result) => {
+    if (err) {
+      res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
+    } else {
+      // Get the id of the poi created previously
+      const resultId = { poi_id: result.insertId };
+      connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (error) => {
+        if (error) {
+          res.status(500).send(`Erreur lors de l'ajout du thème : ${error}`);
+        } else {
+          connection.query(insertGradesNewPoi, [grades, authorName, resultId.poi_id], (e) => {
+            if (e) {
+              res.status(500).send(`Erreur lors de l'ajout des notes : ${e}`);
+            } else {
+              res.sendStatus(200);
+            }
+          });
+        }
+      });
+    }
   });
 });
+
 
 // upload picture
 router.post('/picture', (req, res) => {
   let formData = new formidable.IncomingForm();
   formData.parse(req, function (err, fields, files) {
-    console.log(formData.openedFiles[0].name);
     let olpath = files.file.path;
     let newpath = `./public/images/${files.file.name}`;
     fs.rename(olpath, newpath, function (error) {
       if (error) {
         res.send(`erreur lors du déplacement :${error}`);
       } else {
-        res.send('upload ok');
+        connection.query(createNewPicture, [files.file.name, files.file.name], (errorPic, resultPic) => {
+          if (errorPic) {
+            res.status(500).send(`Erreur lors de la création de l'image : ${errorPic}`);
+          } else {
+            // Get the id of the poi created previously
+            resultPicture = resultPic.insertId;
+            console.log(resultPicture);
+            res.send('upload ok');
+          }
+        });
       }
     });
   });
