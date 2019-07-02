@@ -47,7 +47,7 @@ router.use((req, res, next) => {
 });
 
 // Get the id of the poi created previously
-let resultPicture = {};
+let resultPicture;
 
 router.post('/', (req, res) => {
   const formData = {
@@ -104,7 +104,8 @@ router.post('/picture', (req, res) => {
             res.status(500).send(`Erreur lors de la création de l'image : ${errorPic}`);
           } else {
             // Get the id of the poi created previously
-            resultPicture = { picture_id: resultPic.insertId };
+            resultPicture = resultPic.insertId;
+            console.log(resultPicture);
             res.send('upload ok');
           }
         });
