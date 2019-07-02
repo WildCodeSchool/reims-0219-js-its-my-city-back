@@ -65,19 +65,19 @@ router.post('/', (req, res) => {
   const { keyword } = req.body;
 
 
-  connection.query(createNewPoi, [formData, authorName, resultPicture], (err, result) => {
-    if (err) {
-      res.status(500).send(`Erreur lors de la création du point d'intéret : ${err}`);
+  connection.query(createNewPoi, [formData, authorName, resultPicture], (errorPoi, result) => {
+    if (errorPoi) {
+      res.status(500).send(`erreur lors de la création du point d'intéret : ${errorPoi}`);
     } else {
       // Get the id of the poi created previously
       const resultId = { poi_id: result.insertId };
-      connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (error) => {
-        if (error) {
-          res.status(500).send(`Erreur lors de l'ajout du thème : ${error}`);
+      connection.query(linkNewlyCreatedPoiWithKeyword, [keyword, resultId], (errorKeyword) => {
+        if (errorKeyword) {
+          res.status(500).send(`Erreur lors de l'ajout du thème : ${errorKeyword}`);
         } else {
-          connection.query(insertGradesNewPoi, [grades, authorName, resultId.poi_id], (e) => {
-            if (e) {
-              res.status(500).send(`Erreur lors de l'ajout des notes : ${e}`);
+          connection.query(insertGradesNewPoi, [grades, authorName, resultId.poi_id], (errorGrades) => {
+            if (errorGrades) {
+              res.status(500).send(`Erreur lors de l'ajout des notes : ${errorGrades}`);
             } else {
               res.sendStatus(200);
             }
@@ -91,13 +91,13 @@ router.post('/', (req, res) => {
 
 // upload picture
 router.post('/picture', (req, res) => {
-  let formData = new formidable.IncomingForm();
-  formData.parse(req, function (err, fields, files) {
+  const formData = new formidable.IncomingForm();
+  formData.parse(req, function (errorParse, fields, files) {
     let olpath = files.file.path;
     let newpath = `./public/images/${files.file.name}`;
-    fs.rename(olpath, newpath, function (error) {
-      if (error) {
-        res.send(`erreur lors du déplacement :${error}`);
+    fs.rename(olpath, newpath, function (errorPathChange) {
+      if (errorPathChange) {
+        res.send(`erreur lors du déplacement :${errorPathChange}`);
       } else {
         connection.query(createNewPicture, [files.file.name, files.file.name], (errorPic, resultPic) => {
           if (errorPic) {
