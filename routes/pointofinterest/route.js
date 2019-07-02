@@ -105,7 +105,6 @@ router.post('/picture', (req, res) => {
           } else {
             // Get the id of the poi created previously
             resultPicture = resultPic.insertId;
-            console.log(resultPicture);
             res.send('upload ok');
           }
         });
