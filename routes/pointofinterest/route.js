@@ -18,6 +18,7 @@ const getFilteredPoiByKeyword1 = require('../../queries/getFilteredPoiByKeyword1
 const { linkNewlyCreatedPoiWithKeyword } = require('../../queries/linkNewlyCreatedPoiWithKeyword');
 const insertGradesNewPoi = require('../../queries/insertGradesNewPoi');
 const { createNewPicture } = require('../../queries/createNewPicture');
+const getPoiInfosById = require('../../queries/getPoiInfosById');
 
 
 // Support JSON-encoded bodies
@@ -79,7 +80,13 @@ router.post('/', (req, res) => {
             if (errorGrades) {
               res.status(500).send(`Erreur lors de l'ajout des notes : ${errorGrades}`);
             } else {
-              res.sendStatus(200);
+              connection.query(getPoiInfosById, [resultId.poi_id], (errorPoiId, resultPoiId) => {
+                if (errorPoiId) {
+                  res.status(500).send(`Erreur lors de la récupération du poi : ${errorPoiId}`);
+                } else {
+                  res.json(transformPoiSampleJson(resultPoiId));
+                }
+              });
             }
           });
         }
