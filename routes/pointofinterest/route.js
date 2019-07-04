@@ -80,11 +80,11 @@ router.post('/', (req, res) => {
             if (errorGrades) {
               res.status(500).send(`Erreur lors de l'ajout des notes : ${errorGrades}`);
             } else {
-              connection.query(getPoiInfosById, [resultId.poi_id], (er, re) => {
-                if (er) {
-                  res.status(500).send(`Erreur lors de la récupération du poi : ${e}`);
+              connection.query(getPoiInfosById, [resultId.poi_id], (errorPoiId, resultPoiId) => {
+                if (errorPoiId) {
+                  res.status(500).send(`Erreur lors de la récupération du poi : ${errorPoiId}`);
                 } else {
-                  res.json(transformPoiSampleJson(re));
+                  res.json(transformPoiSampleJson(resultPoiId));
                 }
               });
             }
