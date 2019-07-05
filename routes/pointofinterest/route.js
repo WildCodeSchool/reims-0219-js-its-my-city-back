@@ -29,6 +29,8 @@ router.use(bodyParser.urlencoded({
   extended: true,
 }));
 
+router.use(express.static('public'));
+
 // allow to get and post content from localhost to localhost
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
