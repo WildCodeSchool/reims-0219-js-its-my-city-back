@@ -4,6 +4,7 @@ const transformPoiSampleJson = datas => (
     name: data.name,
     author: data.author,
     picture_url: data.picurl,
+    firstImportanceKeyword: data.firstImportanceKeyword,
     creation_date: data.creation_date,
     localisation: [
       data.latitude,

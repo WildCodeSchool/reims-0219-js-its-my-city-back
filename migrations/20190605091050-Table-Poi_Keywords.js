@@ -44,7 +44,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '1',
+          '7',
           '1',
         ]);
       },
@@ -55,7 +55,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '1',
+          '13',
           '2',
         ]);
       },
@@ -65,7 +65,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '4',
+          '14',
           '3',
         ]);
       },
@@ -76,7 +76,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '4',
+          '11',
           '4',
         ]);
       },
@@ -87,7 +87,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '3',
+          '11',
           '5',
         ]);
       },
@@ -98,7 +98,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '3',
+          '11',
           '6',
         ]);
       },
@@ -109,7 +109,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '2',
+          '19',
           '7',
         ]);
       },
@@ -120,7 +120,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '2',
+          '18',
           '8',
         ]);
       },
@@ -131,7 +131,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '5',
+          '26',
           '9',
         ]);
       },
@@ -142,7 +142,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '1',
+          '26',
           '10',
         ]);
       },
@@ -153,7 +153,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '1',
+          '29',
           '11',
         ]);
       },
@@ -164,7 +164,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '4',
+          '28',
           '12',
         ]);
       },
@@ -175,7 +175,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '2',
+          '28',
           '13',
         ]);
       },
@@ -186,7 +186,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '3',
+          '44',
           '14',
         ]);
       },
@@ -197,7 +197,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '2',
+          '47',
           '15',
         ]);
       },
@@ -208,7 +208,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '1',
+          '47',
           '16',
         ]);
       },
@@ -219,7 +219,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '5',
+          '12',
           '17',
         ]);
       },
@@ -230,7 +230,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '5',
+          '14',
           '18',
         ]);
       },
