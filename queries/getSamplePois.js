@@ -5,7 +5,7 @@ const getSamplePoisInfosCriteria = require('./getSamplePoisInfosCriteria');
 const getSamplePois = `${getSamplePoisInfos} 
 WHERE keyword.name = 'Sport & Loisirs' ${getSamplePoisInfosCriteria} 
   UNION (${getSamplePoisInfos} 
-    WHERE keyword.name = 'Nature & Développement Durable' ${getSamplePoisInfosCriteria})
+    WHERE keyword.name = 'Nature & Ecologie' ${getSamplePoisInfosCriteria})
   UNION (${getSamplePoisInfos} 
     WHERE keyword.name = 'Services Publics' ${getSamplePoisInfosCriteria})
   UNION (${getSamplePoisInfos} 
