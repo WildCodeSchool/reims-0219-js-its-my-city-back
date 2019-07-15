@@ -8,7 +8,8 @@ picture.url as picurl,
 user.name as author, 
 grades.accessibility, 
 grades.condition, 
-grades.functional 
+grades.functional,
+ROUND((grades.accessibility + grades.condition + grades.functional)/3) AS 'average'
 from point_of_interest p 
 JOIN poi_keywords pk ON pk.poi_id=p.id 
 JOIN keyword_hierarchy h ON h.keyword_children=pk.keyword_id 
