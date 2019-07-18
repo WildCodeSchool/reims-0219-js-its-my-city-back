@@ -336,6 +336,101 @@ exports.up = function (db) {
           '18',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '1',
+          '2',
+          '3',
+          '1',
+          '19',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '5',
+          '5',
+          '5',
+          '5',
+          '1',
+          '20',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '4',
+          '4',
+          '4',
+          '4',
+          '1',
+          '21',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '5',
+          '5',
+          '5',
+          '5',
+          '1',
+          '22',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '5',
+          '5',
+          '5',
+          '5',
+          '1',
+          '23',
+        ]);
+      },
     );
 };
 
