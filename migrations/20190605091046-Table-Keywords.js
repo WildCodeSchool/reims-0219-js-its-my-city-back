@@ -46,7 +46,7 @@ exports.up = function (db) {
           'importance',
           'informations',
         ], [
-          'Nature & Développement Durable',
+          'Nature & Ecologie',
           '1',
           'horaires',
         ]);
