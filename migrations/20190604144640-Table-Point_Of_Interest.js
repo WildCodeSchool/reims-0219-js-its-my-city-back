@@ -56,9 +56,9 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          'Piscine Talleyrand',
-          '49.2563256',
-          '4.025759',
+          'Statue de Colbert',
+          '49.258249',
+          '4.025699',
           '2019-06-12 08:00:00',
           '1',
           '9',
