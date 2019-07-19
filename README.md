@@ -43,6 +43,15 @@ Database modelization available in the "resources" folder
   We use _formidable_ library to "transform" the picture date in json while storing the picture itself it in a folder with its Id (public/image/here).
   The link between the POI and the new image is done by storing the picture ID on creation, and reusing it inside the POI creation to reach the storage folder.
 
+data sent from front when submitting file looks like :
+![](https://i.imgur.com/C3oiE56.png)
+
+data transformed by formidable looks like :
+![](https://i.imgur.com/oK1JFai.png)
+
+then the fs.rename sends the picture in the dedicated folder with its initial name and extension, and the following query pushes its name in the database so that it can be used in front to call a url to the image to display.
+
+
 ## Get
 
 ### Get '/sample/:latitude/:longitude'
