@@ -2,6 +2,10 @@
 
 POI : Point Of Interest = a place on the map with latitude/longitude/description/category/picture
 
+# Database
+
+Database modelization available in the "resources" folder
+
 # Description of our roads:
 
 ## Post : 
@@ -47,3 +51,4 @@ it allows to get date of every POI linked with a specified first level keyword (
 # Migrations
 
 We used dbmigrate to create and manage test date in our database
+
