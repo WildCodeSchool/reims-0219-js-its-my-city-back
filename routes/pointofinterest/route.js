@@ -101,6 +101,7 @@ router.post('/', (req, res) => {
 // upload picture
 router.post('/picture', (req, res) => {
   const formData = new formidable.IncomingForm();
+  console.log(formData);
   formData.parse(req, function (errorParse, fields, files) {
     const olpath = files.file.path;
     const newpath = `./public/images/${files.file.name}`;

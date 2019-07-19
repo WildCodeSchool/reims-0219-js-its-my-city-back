@@ -21,6 +21,22 @@ Database modelization available in the "resources" folder
 
   - the connection.query  getPoiInfosById complete the POI creation, and transform the result of the query so that the JSON can be used to show the newly created POI on the map in the app.
 
+
+  data sent will look like :
+  ``` javascript
+  {
+              name: "Collecte de vêtements - Saint-Joseph",
+              latitude:  49.2748, //defined by user map pin positionning
+              longitude: 4.01728, //defined by user map pin positionning
+              keyword: 47, //second level keyword id
+              author_id: 1,
+              global_grade: 4, //default
+              accessibility: 5, //user input
+              condition: 3, // user input
+              functional: 4, //user input
+            }
+  ```
+
 ### Post '/picture' :
 
   This aims to get the picture of the newly created POI., 
@@ -33,6 +49,52 @@ Database modelization available in the "resources" folder
  
  it allows get data from the database to display a first sample of two POI per theme (first level keywords) around the geolocated user when the application starts.
  the radius of the display zone is currently set at 3km/3000m in getSamplePoisInfosCriteria.js
+
+ example : 'sample/49.2653016/4.0140353 will get something like :
+
+ ``` javascript
+ {
+        "id": 23,
+        "name": "Table de ping-pong - Charles Arnould",
+        "author": "Wilder",
+        "picture_url": "Default_Picture.webp",
+        "firstImportanceKeyword": "Sport & Loisirs",
+        "creation_date": "2019-06-17T22:00:00.000Z",
+        "localisation": [
+            49.2646,
+            4.01292
+        ],
+        "grades": {
+            "average": 5,
+            "accessibility": 5,
+            "condition": 5,
+            "functional": 5
+        },
+        "keywordId": 11
+    },
+    {
+        "id": 19,
+        "name": "Table de ping-pong - Quartier Libre",
+        "author": "Wilder",
+        "picture_url": "Default_Picture.webp",
+        "firstImportanceKeyword": "Sport & Loisirs",
+        "creation_date": "2019-06-17T22:00:00.000Z",
+        "localisation": [
+            49.257,
+            4.01972
+        ],
+        "grades": {
+            "average": 2,
+            "accessibility": 1,
+            "condition": 2,
+            "functional": 3
+        },
+        "keywordId": 11
+    },
+...
+]
+```
+
 
 ### Get '/keyword'
 
