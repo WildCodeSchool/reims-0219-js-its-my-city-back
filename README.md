@@ -59,7 +59,7 @@ then the fs.rename sends the picture in the dedicated folder with its initial na
  it allows get data from the database to display a first sample of two POI per theme (first level keywords) around the geolocated user when the application starts.
  the radius of the display zone is currently set at 3km/3000m in getSamplePoisInfosCriteria.js
 
- example : 'sample/49.2653016/4.0140353 will get something like :
+ example : 'sample/49.2653016/4.0140353' will get :
 
  ``` javascript
  {
