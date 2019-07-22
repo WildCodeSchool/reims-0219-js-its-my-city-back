@@ -27,7 +27,7 @@ exports.up = function (db) {
   })
     .then(
       (result) => {
-        db.insert('user', ['name', 'password'], ['DarkNinja51100', 'password']);
+        db.insert('user', ['name', 'password'], ['D4rkNinj@51100', 'password']);
       },
     );
 };
