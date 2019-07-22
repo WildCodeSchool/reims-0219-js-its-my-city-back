@@ -101,6 +101,7 @@ router.post('/', (req, res) => {
 // upload picture
 router.post('/picture', (req, res) => {
   const formData = new formidable.IncomingForm();
+  console.log(formData);
   formData.parse(req, function (errorParse, fields, files) {
     const olpath = files.file.path;
     const newpath = `./public/images/${files.file.name}`;
@@ -155,7 +156,7 @@ router.get('/filter/:keyword', (req, res) => {
   const keywordToSearch = req.params.keyword;
   connection.query(getFilteredPoi, [keywordToSearch], (err, datas) => {
     if (err) {
-      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
+      res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
     } else {
       res.json(transformPoiSampleJson(datas));
     }
@@ -166,7 +167,7 @@ router.get('/filterKeyword1/:keyword', (req, res) => {
   const keywordToSearch = req.params.keyword;
   connection.query(getFilteredPoiByKeyword1, [keywordToSearch], (err, datas) => {
     if (err) {
-      res.status(500).send(`Erreur lors de la récupération des points d'interets : ${err}`);
+      res.status(500).send(`Erreur lors de la récupération des mots-clés : ${err}`);
     } else {
       res.json(transformPoiSampleJson(datas));
     }
