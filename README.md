@@ -62,7 +62,8 @@ then the fs.rename sends the picture in the dedicated folder with its initial na
  example : 'sample/49.2653016/4.0140353' will get :
 
  ``` javascript
- {
+ [
+     {
         "id": 23,
         "name": "Table de ping-pong - Charles Arnould",
         "author": "Wilder",
@@ -105,18 +106,100 @@ then the fs.rename sends the picture in the dedicated folder with its initial na
 ```
 
 
-### Get '/keyword'
+### Get '/keywords'
 
-it gets all the keywords data registered inside the database.
+it gets all the keywords data registered inside the database as follows :
+
+ ``` javascript
+ [
+    {
+        "id": int,
+        "name": string,
+        "importance": int (1 or 2),
+        "parent_id": int (if second category) or null,
+        "children_id": int (if second category) or null
+    },
+...
+ ]
+```
 
 ### Get '/filter/:keyword'
 
 it allows to get data of every POI linked with a specified second level keyword (category).
 
+'/filter/boulodrome will get all POI with a keywordName boulodrome in the following format:
+
+
+ ``` javascript
+ [
+     {
+        "id": 18,
+        "name": "Boulodrome - Saint-Brice",
+        "author": "Wilder",
+        "picture_url": "Default_Picture.webp",
+        "firstImportanceKeyword": "Sport & Loisirs",
+        "creation_date": "2019-06-17T22:00:00.000Z",
+        "localisation": [
+            49.2572,
+            4.01898
+        ],
+        "grades": {
+            "average": 2,
+            "accessibility": 1,
+            "condition": 2,
+            "functional": 3
+        },
+        "keywordId": 6,
+        "keywordName": "Boulodrome"
+    }
+...
+ ]
+```
 
 ### Get 'filterKeyword1/:keyword'
 
 it allows to get date of every POI linked with a specified first level keyword (theme)
+
+'/filterKeyword1/Nature%20&%20Ecologie' will get all second-level keywords with "Nature & Ecologie" as a parent in the following format : 
+ ``` javascript
+ [
+     {
+        "name": "Monument - Statue de Colbert",
+        "author": "Wilder",
+        "picture_url": "Default_Picture.webp",
+        "firstImportanceKeyword": "Nature & Ecologie",
+        "creation_date": "2019-06-12T06:00:00.000Z",
+        "localisation": [
+            49.2582,
+            4.0257
+        ],
+        "grades": {
+            "average": 3,
+            "accessibility": 4,
+            "condition": 3,
+            "functional": 3
+        }
+    },
+    {
+        "name": "Parc - Croix-Cordier",
+        "author": "Wilder",
+        "picture_url": "Default_Picture.webp",
+        "firstImportanceKeyword": "Nature & Ecologie",
+        "creation_date": "2019-03-01T06:04:10.000Z",
+        "localisation": [
+            49.2449,
+            3.99053
+        ],
+        "grades": {
+            "average": 2,
+            "accessibility": 1,
+            "condition": 2,
+            "functional": 3
+        }
+    }, 
+...
+ ]
+```
 
 
 # Migrations
