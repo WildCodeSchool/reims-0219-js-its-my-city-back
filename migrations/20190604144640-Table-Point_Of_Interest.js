@@ -80,7 +80,7 @@ exports.up = function (db) {
           '4.025301',
           '2019-06-10 09:00:00',
           '1',
-          '9',
+          '2',
         ]);
       },
     )
@@ -99,7 +99,7 @@ exports.up = function (db) {
           '4.019728',
           '2019-05-02 08:20:03',
           '1',
-          '9',
+          '3',
         ]);
       },
     )
@@ -118,7 +118,7 @@ exports.up = function (db) {
           '4.019728',
           '2018-05-12 08:00:40',
           '1',
-          '9',
+          '4',
         ]);
       },
     )
@@ -137,7 +137,7 @@ exports.up = function (db) {
           '4.056639',
           '2019-03-01 07:04:10',
           '1',
-          '9',
+          '4',
         ]);
       },
     )
@@ -156,7 +156,7 @@ exports.up = function (db) {
           '3.989211',
           '2019-03-01 07:04:10',
           '1',
-          '9',
+          '1',
         ]);
       },
     )
@@ -175,7 +175,7 @@ exports.up = function (db) {
           '3.990526',
           '2019-03-01 07:04:10',
           '1',
-          '9',
+          '8',
         ]);
       },
     )
@@ -194,7 +194,7 @@ exports.up = function (db) {
           '3.997111',
           '2019-02-04 07:04:10',
           '1',
-          '9',
+          '3',
         ]);
       },
     )
@@ -308,7 +308,7 @@ exports.up = function (db) {
           '4.019289',
           '2019-06-18',
           '1',
-          '9',
+          '5',
         ]);
       },
     )
@@ -327,7 +327,7 @@ exports.up = function (db) {
           '4.017276',
           '2019-06-18',
           '1',
-          '9',
+          '6',
         ]);
       },
     )
@@ -341,12 +341,12 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          'Collecte de vêtements - Barabâtre-Brulart',
-          '49.245993',
-          '4.042758',
+          'Collecte de vêtements - Saint Brice',
+          '49.256898',
+          '4.019600',
           '2019-06-18',
           '1',
-          '9',
+          '6',
         ]);
       },
     )
@@ -398,9 +398,9 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          'Table de ping-pong - Quartier Libre',
-          '49.256968',
-          '4.019722',
+          'Container à verre - Boulingrin',
+          '49.259728',
+          '4.031404',
           '2019-06-18',
           '1',
           '9',
@@ -422,7 +422,7 @@ exports.up = function (db) {
           '4.015470',
           '2019-06-18',
           '1',
-          '9',
+          '8',
         ]);
       },
     )
@@ -441,7 +441,7 @@ exports.up = function (db) {
           '4.012502',
           '2019-06-18',
           '1',
-          '9',
+          '8',
         ]);
       },
     )
@@ -479,7 +479,64 @@ exports.up = function (db) {
           '4.012924',
           '2019-06-18',
           '1',
-          '9',
+          '1',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('point_of_interest', [
+          'name',
+          'latitude',
+          'longitude',
+          'creation_date',
+          'author_id',
+          'picture_id',
+        ], [
+          ' Sport en groupe - Gymnase Courcelles',
+          '49.260698',
+          '4.018325',
+          '2019-06-18',
+          '1',
+          '10',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('point_of_interest', [
+          'name',
+          'latitude',
+          'longitude',
+          'creation_date',
+          'author_id',
+          'picture_id',
+        ], [
+          ' Table de ping-pong - Courcelles',
+          '49.260337',
+          '4.017558',
+          '2019-06-18',
+          '1',
+          '1',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('point_of_interest', [
+          'name',
+          'latitude',
+          'longitude',
+          'creation_date',
+          'author_id',
+          'picture_id',
+        ], [
+          ' Table de ping-pong - Roosevelt',
+          '49.262441',
+          '4.025523',
+          '2019-07-19',
+          '1',
+          '4',
         ]);
       },
     );

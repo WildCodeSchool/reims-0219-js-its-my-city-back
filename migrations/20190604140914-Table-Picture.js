@@ -31,8 +31,8 @@ exports.up = function (db) {
           'name',
           'url',
         ], [
-          'Piscine Talleyrand',
-          'Default_Picture.webp',
+          'Table de ping-pong',
+          'PingPong.png',
         ]);
       },
     )
@@ -43,7 +43,7 @@ exports.up = function (db) {
           'url',
         ], [
           'Skate Parc',
-          'Default_Picture.webp',
+          'SkatePark.jpg',
         ]);
       },
     )
@@ -54,7 +54,7 @@ exports.up = function (db) {
           'url',
         ], [
           'Terrain de foot',
-          'Default_Picture.webp',
+          'TerrainFoot.jpg',
         ]);
       },
     )
@@ -65,7 +65,7 @@ exports.up = function (db) {
           'url',
         ], [
           'Table de Ping-Pong',
-          'Default_Picture.webp',
+          'PingPong2',
         ]);
       },
     )
@@ -75,8 +75,8 @@ exports.up = function (db) {
           'name',
           'url',
         ], [
-          'Table de Ping-Pong',
-          'Default_Picture.webp',
+          'Container à verre',
+          'ContainerVerre.jpeg',
         ]);
       },
     )
@@ -86,8 +86,8 @@ exports.up = function (db) {
           'name',
           'url',
         ], [
-          'Table de Ping-Pong',
-          'Default_Picture.webp',
+          'Container à vêtements',
+          'ContainerVetements.jpeg',
         ]);
       },
     )
@@ -98,7 +98,7 @@ exports.up = function (db) {
           'url',
         ], [
           'Jardin',
-          'Default_Picture.webp',
+          'Jardin.jpeg',
         ]);
       },
     )
@@ -109,7 +109,7 @@ exports.up = function (db) {
           'url',
         ], [
           'Parc',
-          'Default_Picture.webp',
+          'Parc.jpg',
         ]);
       },
     )
@@ -120,6 +120,17 @@ exports.up = function (db) {
           'url',
         ], ['standard picture',
           'Default_Picture.webp',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('picture', [
+          'name',
+          'url',
+        ], [
+          'Gymnase',
+          'GymnaseCourcelles.jpg',
         ]);
       },
     );

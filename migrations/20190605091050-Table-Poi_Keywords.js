@@ -289,6 +289,39 @@ exports.up = function (db) {
           '23',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '16',
+          '24',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '11',
+          '25',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '11',
+          '26',
+        ]);
+      },
     );
 };
 

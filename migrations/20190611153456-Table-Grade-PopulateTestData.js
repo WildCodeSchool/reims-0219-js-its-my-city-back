@@ -431,6 +431,63 @@ exports.up = function (db) {
           '23',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '3',
+          '3',
+          '3',
+          '3',
+          '1',
+          '24',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '2',
+          '2',
+          '2',
+          '2',
+          '1',
+          '25',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '4',
+          '4',
+          '4',
+          '4',
+          '1',
+          '26',
+        ]);
+      },
     );
 };
 
