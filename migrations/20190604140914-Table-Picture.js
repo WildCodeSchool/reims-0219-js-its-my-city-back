@@ -133,6 +133,17 @@ exports.up = function (db) {
           'GymnaseCourcelles.jpg',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('picture', [
+          'name',
+          'url',
+        ], [
+          'Composteur',
+          'Composteur.jpeg',
+        ]);
+      },
     );
 };
 

@@ -493,7 +493,7 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          ' Sport en groupe - Gymnase Courcelles',
+          'Sport en groupe - Gymnase Courcelles',
           '49.260698',
           '4.018325',
           '2019-06-18',
@@ -512,7 +512,7 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          ' Table de ping-pong - Courcelles',
+          'Table de ping-pong - Courcelles',
           '49.260337',
           '4.017558',
           '2019-06-18',
@@ -531,9 +531,28 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          ' Table de ping-pong - Roosevelt',
+          'Table de ping-pong - Roosevelt',
           '49.262441',
           '4.025523',
+          '2019-07-19',
+          '1',
+          '4',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('point_of_interest', [
+          'name',
+          'latitude',
+          'longitude',
+          'creation_date',
+          'author_id',
+          'picture_id',
+        ], [
+          'Composteur - Saint-Brice',
+          '49.256728',
+          '4.018842',
           '2019-07-19',
           '1',
           '4',

@@ -322,6 +322,17 @@ exports.up = function (db) {
           '26',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '20',
+          '26',
+        ]);
+      },
     );
 };
 

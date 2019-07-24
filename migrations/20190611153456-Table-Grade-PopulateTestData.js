@@ -488,6 +488,25 @@ exports.up = function (db) {
           '26',
         ]);
       },
+    )
+    .then(
+      (result) => {
+        db.insert('grades', [
+          'global_grade',
+          'accessibility',
+          'condition',
+          'functional',
+          'user_id',
+          'poi_id',
+        ], [
+          '4',
+          '3',
+          '4',
+          '4',
+          '1',
+          '27',
+        ]);
+      },
     );
 };
 
