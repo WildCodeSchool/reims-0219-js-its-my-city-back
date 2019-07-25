@@ -55,7 +55,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '13',
+          '11',
           '2',
         ]);
       },
@@ -76,7 +76,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '11',
+          '13',
           '4',
         ]);
       },

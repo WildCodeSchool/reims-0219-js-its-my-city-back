@@ -65,7 +65,7 @@ exports.up = function (db) {
           'url',
         ], [
           'Table de Ping-Pong',
-          'PingPong2',
+          'PingPong2.png',
         ]);
       },
     )

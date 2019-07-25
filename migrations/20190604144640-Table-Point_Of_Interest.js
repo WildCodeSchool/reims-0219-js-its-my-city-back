@@ -75,12 +75,12 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          'Skate Park - Léo Lagrange',
-          '49.244777',
-          '4.025301',
-          '2019-06-10 09:00:00',
+          'Table de ping-pong - Rue Bruyant',
+          '49.258845',
+          '4.014892',
+          '2019-06-18',
           '1',
-          '2',
+          '1',
         ]);
       },
     )
@@ -113,12 +113,12 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          'Table de Ping Pong - Wilson',
-          '49.240366',
-          '4.019728',
-          '2018-05-12 08:00:40',
+          'Skate Park - Léo Lagrange',
+          '49.244777',
+          '4.025301',
+          '2019-06-10 09:00:00',
           '1',
-          '4',
+          '2',
         ]);
       },
     )
@@ -474,12 +474,12 @@ exports.up = function (db) {
           'author_id',
           'picture_id',
         ], [
-          'Table de ping-pong - Charles Arnould',
-          '49.264556',
-          '4.012924',
-          '2019-06-18',
+          'Table de Ping Pong - Wilson',
+          '49.240366',
+          '4.019728',
+          '2018-05-12 08:00:40',
           '1',
-          '1',
+          '4',
         ]);
       },
     )
