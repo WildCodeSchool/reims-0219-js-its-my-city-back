@@ -330,7 +330,7 @@ exports.up = function (db) {
           'poi_id',
         ], [
           '20',
-          '26',
+          '27',
         ]);
       },
     );
