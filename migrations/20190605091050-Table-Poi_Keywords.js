@@ -55,7 +55,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '13',
+          '11',
           '2',
         ]);
       },
@@ -76,7 +76,7 @@ exports.up = function (db) {
           'keyword_id',
           'poi_id',
         ], [
-          '11',
+          '13',
           '4',
         ]);
       },
@@ -287,6 +287,50 @@ exports.up = function (db) {
         ], [
           '11',
           '23',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '16',
+          '24',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '11',
+          '25',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '11',
+          '26',
+        ]);
+      },
+    )
+    .then(
+      (result) => {
+        db.insert('poi_keywords', [
+          'keyword_id',
+          'poi_id',
+        ], [
+          '20',
+          '27',
         ]);
       },
     );
